@@ -1,6 +1,6 @@
-FROM registry.cn-hangzhou.aliyuncs.com/javacspring/java8
+FROM registry.cn-hangzhou.aliyuncs.com/javacspring/java8:1.0
 VOLUME ../tmp
-ADD imooc-miaosha-1.0.0-SNAPSHOT.jar ./app.jar
+ADD miaosha-docker-1.0.0-SNAPSHOT.jar ./app.jar
 
 ADD startup.sh /opt/startup.sh
 RUN chmod +x /opt/startup.sh
