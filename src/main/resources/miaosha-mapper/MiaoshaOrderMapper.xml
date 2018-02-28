@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.miaosha.dao.MiaoshaOrderMapper">
+    <resultMap id="BaseResultMap" type="com.imooc.miaosha.domain.MiaoshaOrder">
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="order_id" jdbcType="BIGINT" property="orderId"/>
+        <result column="goods_id" jdbcType="BIGINT" property="goodsId"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.imooc.miaosha.domain.MiaoshaOrder">
+        insert into miaosha_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="orderId != null">
+                order_id,
+            </if>
+            <if test="goodsId != null">
+                goods_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="orderId != null">
+                #{orderId,jdbcType=BIGINT},
+            </if>
+            <if test="goodsId != null">
+                #{goodsId,jdbcType=BIGINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="update" parameterType="com.imooc.miaosha.domain.MiaoshaOrder">
+        update miaosha_order
+        <set>
+            <if test="id != null">
+                id = #{id,jdbcType=BIGINT},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId,jdbcType=BIGINT},
+            </if>
+            <if test="orderId != null">
+                order_id = #{orderId,jdbcType=BIGINT},
+            </if>
+            <if test="goodsId != null">
+                goods_id = #{goodsId,jdbcType=BIGINT},
+            </if>
+        </set>
+    </update>
+    <select id="select" parameterType="com.imooc.miaosha.domain.MiaoshaOrder" resultMap="BaseResultMap">
+        select
+        *
+        from miaosha_order where 1 = 1
+        <if test="id != null">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="userId != null">
+            and user_id = #{userId,jdbcType=BIGINT}
+        </if>
+        <if test="orderId != null">
+            and order_id = #{orderId,jdbcType=BIGINT}
+        </if>
+        <if test="goodsId != null">
+            and goods_id = #{goodsId,jdbcType=BIGINT}
+        </if>
+    </select>
+    <select id="selectOne" parameterType="com.imooc.miaosha.domain.MiaoshaOrder" resultMap="BaseResultMap">
+        select
+        *
+        from miaosha_order where 1 = 1
+        <if test="id != null">
+            and id = #{id,jdbcType=BIGINT}
+        </if>
+        <if test="userId != null">
+            and user_id = #{userId,jdbcType=BIGINT}
+        </if>
+        <if test="orderId != null">
+            and order_id = #{orderId,jdbcType=BIGINT}
+        </if>
+        <if test="goodsId != null">
+            and goods_id = #{goodsId,jdbcType=BIGINT}
+        </if>
+        limit 1
+    </select>
+</mapper>
