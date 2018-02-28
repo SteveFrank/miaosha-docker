@@ -1,4 +1,4 @@
-FROM 10440/service:v1.0.0
+FROM registry.cn-hangzhou.aliyuncs.com/javacspring/java8
 VOLUME ../tmp
 ADD imooc-miaosha-1.0.0-SNAPSHOT.jar ./app.jar
 
