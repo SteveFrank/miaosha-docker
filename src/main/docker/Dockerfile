@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/javacspring/java8:1.0
+FROM java:latest
 VOLUME /tmp
 ADD miaosha-docker-1.0.0-SNAPSHOT.jar ./app.jar
 
